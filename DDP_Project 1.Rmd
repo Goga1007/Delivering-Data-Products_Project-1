@@ -1,0 +1,32 @@
+---
+title: 'Coursera: R Markdown and Leaflet'
+author: "Goga"
+date: "2023-06-29"
+output: html_document
+---
+
+
+## My First Leaflet Map
+Create a leaflet map object.
+```{r, echo=FALSE}
+library(leaflet)
+map <- leaflet() %>% addTiles()
+
+```
+
+Create a marker with a picture of Ziki Headquarters and a link to its homepage.
+```{r, echo=FALSE}
+zikiPlace <- makeIcon(
+   iconUrl = "https://10619-2.s.cdn12.com/rests/original/301_290387731.jpg",
+   iconWidth = 30*408/255, iconHeight = 30,
+   iconAnchorX = 30*408/255/2, iconAnchorY = 30/2
+)
+```
+
+Add the marker to the map and display the map.
+```{r, echo=FALSE}
+źikiPlacePopup <- c("<a href= ´https://www.facebook.com/zikibar1/ >Ziki Bar</a>")
+map %>%
+   addTiles() %>%
+   addMarkers(lat=45.780449, lng=15.984302, popup = "Headquarters")
+```
